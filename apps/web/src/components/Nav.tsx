@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AppContext from '@context/AppContext';
+
 import Image from "next/image";
 
 import iconBack from "@icons/icon-back.svg";
@@ -6,10 +8,18 @@ import iconMobile from "@icons/icon-mobile.svg";
 import plpLogo from "@logos/plp-logo.svg";
 
 const Nav = () => {
-  const [isActiveBack, setIsActiveBack] = useState<boolean>(true);
-  const handlerIsActiveBack = (newState: boolean) => setIsActiveBack(newState);
+  const { state, updateState } = useContext(AppContext);
 
-  const handlerBtnBack = () => handlerIsActiveBack(false);
+  const handlerBtnBack = () => {
+    if (state.isRegister || state.isLogin) return;
+    if (state.isRegisterPhone || state.isRegisterEmail) {
+      updateState('isRegister');
+      return;
+    }
+    if (state.isLoginPhone || state.isLoginEmail) {
+      updateState('isLogin');
+    }
+  };
 
   return (
     <nav
@@ -17,7 +27,7 @@ const Nav = () => {
                     h-20 w-screen bg-[var(--bg-color)]
                     text-white shadow-lg overflow-hidden`}
     >
-      {isActiveBack && (
+      {(!state.isRegister && !state.isLogin)  && (
         <button
           className="absolute left-[9vw] flex justify-center items-center gap-x-2.5"
           onClick={handlerBtnBack}
@@ -31,7 +41,7 @@ const Nav = () => {
         </button>
       )}
       <div
-        className={`h-auto w-screen flex items-center justify-center transition-transform ${isActiveBack ? "translate-x-1/4" : ""}`}
+        className={`h-auto w-screen flex items-center justify-center transition-transform ${(!state.isRegister && !state.isLogin)  ? "translate-x-1/4" : ""}`}
       >
         <Image
           className="h-8 w-auto"
