@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { User } from '@models/userModel';
+import { Views } from '@models/viewsModel';
 import useLocalTypes from '@hooks/useLocalTypes';
 
 const useAppState = () => {
     const { formatCurrency } = useLocalTypes();
+    const [state, setState] = useState<Views>({isRegister: true});
+    const updateState = (view: keyof Views) => {
+      setState({[view]: true});
+    }
     
     const [user, setUser] = useState<User>({
         name: "Salomón",
@@ -29,6 +34,8 @@ const useAppState = () => {
     };
 
   return {
+    state,
+    updateState,
     user,
     updateUser,
     getPrice,

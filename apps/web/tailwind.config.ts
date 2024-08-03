@@ -8,9 +8,6 @@ const config: Pick<Config, "content" | "presets"> = {
     extend: {
       height: {
         'main': 'calc(100vh - 80px)',
-      },
-      fontFanily: {
-        'custom': ['"Shadows Into Light", cursive']
       }
     }
   }
