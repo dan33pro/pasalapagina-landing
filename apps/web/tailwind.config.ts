@@ -4,6 +4,16 @@ import sharedConfig from "@repo/tailwind-config";
 const config: Pick<Config, "content" | "presets"> = {
   content: ["./src/**/**/*.tsx"],
   presets: [sharedConfig],
+  theme: {
+    extend: {
+      height: {
+        'main': 'calc(100vh - 80px)',
+      },
+      fontFanily: {
+        'custom': ['"Shadows Into Light", cursive']
+      }
+    }
+  }
 };
 
 export default config;

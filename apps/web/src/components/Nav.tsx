@@ -13,18 +13,21 @@ const Nav = () => {
 
   return (
     <nav
-      className={` relative grid place-items-center grid-cols-1
-                      h-[10vh] max-h-20 w-screen bg-[var(--bg-color)]
-                      text-white shadow-lg overflow-hidden`}
+      className={`  relative grid place-items-center grid-cols-1
+                    h-20 w-screen bg-[var(--bg-color)]
+                    text-white shadow-lg overflow-hidden`}
     >
       {isActiveBack && (
-        <button className="absolute left-12 flex justify-center items-center gap-x-2.5" onClick={handlerBtnBack}>
+        <button
+          className="absolute left-[9vw] flex justify-center items-center gap-x-2.5"
+          onClick={handlerBtnBack}
+        >
           <Image
             className="brightness-200 h-8 w-auto"
             src={iconBack}
             alt={"Icono de volver atras"}
           />
-          <span>Volver</span>
+          <span className="text-lg">Volver</span>
         </button>
       )}
       <div
@@ -37,7 +40,7 @@ const Nav = () => {
         />
       </div>
       <Image
-        className="absolute right-12 h-8 w-auto"
+        className="absolute right-[3vw] h-8 w-auto"
         src={iconMobile}
         alt={"Icono de celular"}
       />
