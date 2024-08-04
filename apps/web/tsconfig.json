@@ -3,16 +3,19 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@styles/*": ["styles/*"],
       "@app/*": ["app/*"],
-      "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"],
-      "@layout/*": ["layouts/*"],
-      "@hooks/*": ["hooks/*"],
-      "@services/*": ["services/*"],
       "@icons/*": ["assets/icons/*"],
       "@logos/*": ["assets/logos/*"],
-      "@images/*": ["assets/images/*"]
+      "@images/*": ["assets/images/*"],
+      "@common/*": ["common/*"],
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@context/*": ["context/*"],
+      "@hooks/*": ["hooks/*"],
+      "@layouts/*": ["layouts/*"],
+      "@models/*": ["models/*"],
+      "@services/*": ["services/*"],
+      "@styles/*": ["styles/*"],
     },
     "plugins": [{ "name": "next" }]
   },
