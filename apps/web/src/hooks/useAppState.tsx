@@ -16,13 +16,20 @@ const useAppState = () => {
 
     const [phone, setPhone] = useState('');
     const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+
+    const [email, setEmail] = useState('');
+
+    const [fullName, setFullName] = useState<boolean>('');
     const [dob, setDob] = useState<string>('');
     const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
 
     const clearPDTAInputs = () => {
       setPhone('');
+      setEmail('');
       setDob('');
+      setFullName('');
       setTermsAccepted(false);
+      setSelectedCountry(countries[0]);
     };
 
     const [user, setUser] = useState<User>({
@@ -49,22 +56,11 @@ const useAppState = () => {
     };
 
   return {
-    state,
-    updateState,
-    user,
-    updateUser,
-    getPrice,
-    getBargain,
-    countries,
-    phone,
-    setPhone,
-    selectedCountry,
-    setSelectedCountry,
-    dob,
-    setDob,
-    termsAccepted,
-    setTermsAccepted,
-    clearPDTAInputs
+    state, updateState, user, updateUser,
+    getPrice, getBargain, countries, phone,
+    setPhone, email, setEmail, selectedCountry,
+    setSelectedCountry, dob, setDob, termsAccepted,
+    setTermsAccepted, fullName, setFullName, clearPDTAInputs
   };
 };
 
