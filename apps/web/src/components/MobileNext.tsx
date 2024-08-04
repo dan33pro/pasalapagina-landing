@@ -1,17 +1,25 @@
 import React, { useContext, useState } from 'react';
 import AppContext from '@context/AppContext';
 
-import Dropdown from '@components/Dropdown';
+import Dropdown from '@common/Dropdown';
 
 const MobileNext = () => {
-    const { state, selectedCountry, phone, setPhone, dob, setDob, termsAccepted, setTermsAccepted, fullName, setFullName } = useContext(AppContext);
+    const {
+        state, selectedCountry, phone, setPhone, dob,
+        setDob, termsAccepted, setTermsAccepted, fullName,
+        setFullName, updateState, stepsViews, setStepsViews
+    } = useContext(AppContext);
 
     const handlerSubmit = (event) => {
         event.preventDefault();
         if (state.isRegisterPhone) {
+            updateState('isPhoneConfirmation');
+            setStepsViews([ ...stepsViews, 'isRegisterPhone']);
             return;
         }
         if (state.isLoginPhone) {
+            updateState('isPhoneConfirmation');
+            setStepsViews([ ...stepsViews, 'isLoginPhone']);
             return;
         }
     }
