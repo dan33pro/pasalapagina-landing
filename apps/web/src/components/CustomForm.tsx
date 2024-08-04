@@ -16,7 +16,7 @@ const CustomForm = () => {
     };
     
   return (
-    <article className="grid place-items-center">
+    <article className="my-10 grid place-items-center">
         <div className="flex flex-col h-12 text-2xl text-center m-5 mb-7 text-[var(--ul-dark-grey)]">
             <AnimatePresence>
                 {state.isLogin && (

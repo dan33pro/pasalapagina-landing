@@ -8,7 +8,10 @@ const config: Pick<Config, "content" | "presets"> = {
     extend: {
       height: {
         'main': 'calc(100vh - 80px)',
-      }
+      },
+      boxShadow: {
+        'custom': '0px 2px 0px #24ADD6',
+      },
     }
   }
 };

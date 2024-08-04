@@ -7,10 +7,20 @@ import MobileNext from '@components/MobileNext';
 import EmailNext from '@components/EmailNext';
 
 const FormContainer = () => {
-  const { state, updateState } = useContext(AppContext);
+  const { state, updateState, clearPDTAInputs } = useContext(AppContext);
+
+  const handlerBtnRegister = () => {
+    updateState('isRegister');
+    clearPDTAInputs();
+  };
+
+  const handlerBtnLogin = () => {
+    updateState('isLogin');
+    clearPDTAInputs();
+  };
 
   return (
-    <section className="h-main flex items-center justify-center flex-col gap-y-10">
+    <section className="h-main flex items-center justify-center flex-col">
         <h2 className=" text-2xl text-center text-[var(--ul-dark-grey)] pt-3.5 px-7 pb-7
                         border-b border-[var(--border-color)]">
           Cientos de revistas para <br />leer y escuchar en nuestro <br /> Kiosco Digital
@@ -23,7 +33,7 @@ const FormContainer = () => {
             {(state.isLogin || state.isLoginPhone || state.isLoginEmail) && (
               <motion.button
                 key="register"
-                onClick={() => updateState('isRegister')}
+                onClick={handlerBtnRegister}
                 className="text-lg font-medium"
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -38,7 +48,7 @@ const FormContainer = () => {
             {(state.isRegister || state.isRegisterPhone || state.isRegisterEmail) && (
               <motion.button
                 key="login"
-                onClick={() => updateState('isLogin')}
+                onClick={handlerBtnLogin}
                 className="text-lg font-medium text-[var(--light-blue)] underline"
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}

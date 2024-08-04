@@ -7,6 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <title>Pasa La Página</title>
+      </head>
       <body>{children}</body>
     </html>
   );
