@@ -6,7 +6,7 @@ import Discount from "@components/Discount";
 import FormContainer from "@containers/FormContainer";
 import SecurityConfirmation from "@components/SecurityConfirmation";
 import PaymentMethod from "@components/PaymentMethod";
-import PMCard from "@components/PMCard";
+import PMCard from "@containers/PMCard";
 import PMpse from "@components/PMpse";
 
 import personasImage from "@images/personajes@2x.png";
