@@ -9,6 +9,7 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <title>Pasa La Página</title>
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>{children}</body>
     </html>
