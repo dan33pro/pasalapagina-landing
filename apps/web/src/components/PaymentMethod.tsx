@@ -16,14 +16,14 @@ const PaymentMethod = () => {
   };
 
   return (
-    <section className="FormContainer h-main flex items-center justify-center flex-col">
+    <section className="h-main flex items-center justify-center flex-col">
       <h2
         className=" text-2xl text-center text-[var(--ul-dark-grey)] pt-3.5 px-7 pb-7
                         border-b border-[var(--border-color)]"
       >
         Lee las revistas idénticas<br/>a la edición impresa o ingresa<br/>por la sección artículos para<br/>leerlos y escucharlos
       </h2>
-      <article className="EmailNext">
+      <article>
         <p className="mt-6 py-5 text-center text-lg font-medium">
           Elige tu método de pago
         </p>
@@ -34,7 +34,7 @@ const PaymentMethod = () => {
             className="flex items-center justify-between w-[370px] h-16 px-4 py-2 text-sm
                           font-medium text-[var(--dark-grey)] bg-[var(--ul-light-gray)] border
                           border-[var(--grey)] shadow-[var(--light-blue)] shadow-custom
-                          focus:outline-none placeholder:font-normal" >
+                          focus:outline-none placeholder:font-normal hover:bg-[var(--white-color)] hover:brightness-110" >
             <span>Tarjeta Débito o Crédito</span>
             <Image src={iconCards} alt="Icono de cards" />
           </button>
@@ -44,7 +44,7 @@ const PaymentMethod = () => {
             className="flex items-center justify-between w-[370px] h-16 px-4 py-2 text-sm
                           font-medium text-[var(--dark-grey)] bg-[var(--ul-light-gray)] border
                           border-[var(--grey)] shadow-[var(--light-blue)] shadow-custom
-                          focus:outline-none placeholder:font-normal" >
+                          focus:outline-none placeholder:font-normal hover:bg-[var(--white-color)] hover:brightness-110" >
             <span>Efectivo o Débito bancario PSE</span>
             <Image src={iconPSE} alt="Icono de pse" />
           </button>
