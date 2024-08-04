@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { User } from '@models/userModel';
 import { Views } from '@models/viewsModel';
+
+import useCountries from '@hooks/useCountries';
 import useLocalTypes from '@hooks/useLocalTypes';
 
 const useAppState = () => {
@@ -10,6 +12,19 @@ const useAppState = () => {
       setState({[view]: true});
     }
     
+    const { countries } = useCountries();
+
+    const [phone, setPhone] = useState('');
+    const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+    const [dob, setDob] = useState<string>('');
+    const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
+
+    const clearPDTAInputs = () => {
+      setPhone('');
+      setDob('');
+      setTermsAccepted(false);
+    };
+
     const [user, setUser] = useState<User>({
         name: "Salomón",
         age: 85,
@@ -39,7 +54,17 @@ const useAppState = () => {
     user,
     updateUser,
     getPrice,
-    getBargain
+    getBargain,
+    countries,
+    phone,
+    setPhone,
+    selectedCountry,
+    setSelectedCountry,
+    dob,
+    setDob,
+    termsAccepted,
+    setTermsAccepted,
+    clearPDTAInputs
   };
 };
 
