@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import AppContext from '@context/AppContext';
+import React, { useContext } from "react";
+import AppContext from "@context/AppContext";
 
 import Image from "next/image";
 
@@ -8,17 +8,18 @@ import iconMobile from "@icons/icon-mobile.svg";
 import plpLogo from "@logos/plp-logo.svg";
 
 const Nav = () => {
-  const { state, updateState, stepsViews, setStepsViews, clearPDTAInputs} = useContext(AppContext);
+  const { state, updateState, stepsViews, setStepsViews, clearPDTAInputs } =
+    useContext(AppContext);
 
   const handlerBtnBack = () => {
     if (state.isRegister || state.isLogin) return;
     clearPDTAInputs();
     if (state.isRegisterPhone || state.isRegisterEmail) {
-      updateState('isRegister');
+      updateState("isRegister");
       return;
     }
     if (state.isLoginPhone || state.isLoginEmail) {
-      updateState('isLogin');
+      updateState("isLogin");
       return;
     }
     if (state.isPhoneConfirmation || state.isEmailConfirmation) {
@@ -32,7 +33,7 @@ const Nav = () => {
       return;
     }
     if (state.isPMPSE || state.isPMCARD) {
-      updateState('isPaymentMethod');
+      updateState("isPaymentMethod");
       return;
     }
   };
@@ -43,7 +44,7 @@ const Nav = () => {
                     h-20 w-screen bg-[var(--bg-color)]
                     text-white shadow-lg overflow-hidden`}
     >
-      {(!state.isRegister && !state.isLogin)  && (
+      {!state.isRegister && !state.isLogin && (
         <button
           className="absolute left-[9vw] flex justify-center items-center gap-x-2.5"
           onClick={handlerBtnBack}
@@ -57,7 +58,7 @@ const Nav = () => {
         </button>
       )}
       <div
-        className={`h-auto w-screen flex items-center justify-center transition-transform ${(!state.isRegister && !state.isLogin)  ? "translate-x-1/4" : ""}`}
+        className={`h-auto w-screen flex items-center justify-center transition-transform ${!state.isRegister && !state.isLogin ? "translate-x-1/4" : ""}`}
       >
         <Image
           className="h-8 w-auto"

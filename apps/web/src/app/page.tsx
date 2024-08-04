@@ -1,9 +1,9 @@
 "use client";
-import AppContext from '@context/AppContext';
-import useAppState from '@hooks/useAppState';
+import AppContext from "@context/AppContext";
+import useAppState from "@hooks/useAppState";
 
 import Nav from "@components/Nav";
-import MainSection from '@layouts/MainSection';
+import MainSection from "@layouts/MainSection";
 
 export default function Web() {
   const appState = useAppState();
