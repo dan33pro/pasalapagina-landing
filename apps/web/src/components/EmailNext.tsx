@@ -4,17 +4,20 @@ import AppContext from '@context/AppContext';
 const EmailNext = () => {
     const {
         state, email, setEmail, dob, setDob, termsAccepted,
-        setTermsAccepted, fullName, setFullName
+        setTermsAccepted, fullName, setFullName, updateState,
+        stepsViews, setStepsViews
     } = useContext(AppContext);
 
     const handlerSubmit = (event) => {
         event.preventDefault();
         if (state.isRegisterEmail) {
-            console.log(fullName, email, dob)
+            updateState('isEmailConfirmation');
+            setStepsViews([ ...stepsViews, 'isRegisterEmail']);
             return;
         }
         if (state.isLoginEmail) {
-            console.log(fullName, email, dob)
+            updateState('isEmailConfirmation');
+            setStepsViews([ ...stepsViews, 'isLoginEmail']);
             return;
         }
     }

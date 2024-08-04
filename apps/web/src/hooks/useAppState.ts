@@ -55,12 +55,15 @@ const useAppState = () => {
       return formatCurrency(bargainPrice);
     };
 
+    const [stepsViews, setStepsViews] = useState([]);
+
   return {
     state, updateState, user, updateUser,
     getPrice, getBargain, countries, phone,
     setPhone, email, setEmail, selectedCountry,
     setSelectedCountry, dob, setDob, termsAccepted,
-    setTermsAccepted, fullName, setFullName, clearPDTAInputs
+    setTermsAccepted, fullName, setFullName, clearPDTAInputs,
+    stepsViews, setStepsViews
   };
 };
 

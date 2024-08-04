@@ -8,16 +8,32 @@ import iconMobile from "@icons/icon-mobile.svg";
 import plpLogo from "@logos/plp-logo.svg";
 
 const Nav = () => {
-  const { state, updateState } = useContext(AppContext);
+  const { state, updateState, stepsViews, setStepsViews, clearPDTAInputs} = useContext(AppContext);
 
   const handlerBtnBack = () => {
     if (state.isRegister || state.isLogin) return;
+    clearPDTAInputs();
     if (state.isRegisterPhone || state.isRegisterEmail) {
       updateState('isRegister');
       return;
     }
     if (state.isLoginPhone || state.isLoginEmail) {
       updateState('isLogin');
+      return;
+    }
+    if (state.isPhoneConfirmation || state.isEmailConfirmation) {
+      updateState(stepsViews[0]);
+      setStepsViews([]);
+      return;
+    }
+    if (state.isPaymentMethod) {
+      updateState(stepsViews[1]);
+      setStepsViews([stepsViews[0]]);
+      return;
+    }
+    if (state.isPMPSE || state.isPMCARD) {
+      updateState('isPaymentMethod');
+      return;
     }
   };
 

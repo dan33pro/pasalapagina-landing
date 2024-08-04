@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import AppContext from '@context/AppContext';
 import Image from 'next/image';
 
-export default function Dropdown() {
+const Dropdown = () => {
   const { selectedCountry, setSelectedCountry, countries } = useContext(AppContext);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -50,3 +50,5 @@ export default function Dropdown() {
     </div>
   );
 }
+
+export default Dropdown;
