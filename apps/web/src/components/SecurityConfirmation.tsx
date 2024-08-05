@@ -26,8 +26,10 @@ const SecurityConfirmation = () => {
   const [pinValues, setPinValues] = useState(["", "", "", "", "", ""]);
   const [isDisableSubmit, setIsDisableSubmit] = useState<boolean>(true);
 
-  const changeFocusPinInput = (index: number) =>
-    document.getElementById(`pin-input-${index}`).focus();
+  const changeFocusPinInput = (index: number) => {
+    const ele = document.getElementById(`pin-input-${index}`);
+    if (ele != null) ele.focus();
+  };
 
   const checkFocusPinInput = (index: number) => {
     if (index > 0 && pinValues[index - 1] === "" && pinValues[index] === "") {
@@ -60,7 +62,7 @@ const SecurityConfirmation = () => {
   const checkPinValues = () => {
     return !pinValues.some(
       (number) =>
-        isNaN(number) ||
+        isNaN(Number(number)) ||
         number === "" ||
         parseInt(number) < 0 ||
         parseInt(number) > 9

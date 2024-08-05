@@ -48,6 +48,7 @@ body {
 .no-spin {
     -moz-appearance: textfield;
 }
+
 .no-spin::-webkit-outer-spin-button,
 .no-spin::-webkit-inner-spin-button {
     -webkit-appearance: none;
